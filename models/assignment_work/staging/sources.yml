@@ -90,7 +90,7 @@ sources:
           - name: landmark
             description: Nearby landmark or point of interest
 
-      - name: open_restaurant_applications
+      - name: source_nyc_open_restaurant_apps
         description:
           Historic NYC Open Restaurant application data.
           One row per application.
