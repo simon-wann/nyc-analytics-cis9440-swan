@@ -21,6 +21,7 @@ cleaned AS (
             zip,
             business_address,
             food_service_establishment,
+            food_service_establishment_permit,
             sidewalk_dimensions_length,
             sidewalk_dimensions_width,
             sidewalk_dimensions_area,
