@@ -51,8 +51,8 @@ models:
         shared:
           +materialized: table
 
-        mvc_crash:
+        mvc_crashes:
           +materialized: table
 
-        nyc311:
+        nyc_311:
           +materialized: table
