@@ -15,12 +15,13 @@ enriched AS (
         *,
 
         CASE
-            WHEN LOWER(complaint_type) LIKE '%street%' THEN 'Street Issues'
-            WHEN LOWER(complaint_type) LIKE '%traffic%' THEN 'Traffic Issues'
-            WHEN LOWER(complaint_type) LIKE '%sidewalk%' THEN 'Sidewalk Issues'
-            WHEN LOWER(complaint_type) LIKE '%bike%' THEN 'Bike Issues'
-            WHEN LOWER(complaint_type) LIKE '%parking%' THEN 'Parking Issues'
-            ELSE 'Other' -- TODO: hmm I actually want to add a Ferry-related category, what do I do?
+            WHEN LOWER(complaint_type) LIKE '%street condition%' THEN 'Street Condition'
+            WHEN LOWER(complaint_type) LIKE '%street light%' THEN 'Street Lighting'
+            WHEN LOWER(complaint_type) LIKE '%traffic signal%' THEN 'Traffic Signal / Control'
+            WHEN LOWER(complaint_type) LIKE '%traffic%' THEN 'Traffic / Roadway Issue'
+            WHEN LOWER(complaint_type) LIKE '%highway condition%' THEN 'Highway Condition'
+            WHEN LOWER(complaint_type) LIKE '%parking%' THEN 'Parking / Visibility Issue'
+            ELSE 'Other'
         END AS complaint_category
 
     FROM complaint_types
