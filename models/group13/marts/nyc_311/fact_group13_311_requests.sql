@@ -98,8 +98,11 @@
           ON CAST(r.closed_date AS DATE) = d_closed.full_date -- Cast as date to match yyyy-mm-dd date format
 
       LEFT JOIN dim_location l
-          ON r.borough = l.borough
-          AND r.incident_zip = l.zip_code
+          ON UPPER(TRIM(r.borough)) = UPPER(TRIM(l.borough))
+          AND (
+              CAST(r.incident_zip AS STRING) = CAST(l.zip_code AS STRING)
+              OR r.incident_zip IS NULL
+            )
 
       LEFT JOIN dim_complaint c
           ON r.complaint_type = c.complaint_type

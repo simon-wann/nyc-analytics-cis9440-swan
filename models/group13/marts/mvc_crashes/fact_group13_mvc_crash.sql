@@ -64,6 +64,8 @@
           r.longitude,
 
           -- Measures: small calculations included in a fact table
+          r.number_of_persons_injured,
+          r.number_of_persons_killed,
           CASE
               WHEN r.number_of_persons_killed IS NOT NULL
               THEN r.number_of_persons_killed
@@ -74,7 +76,9 @@
           CASE WHEN r.number_of_persons_killed > 0 THEN TRUE ELSE FALSE END AS is_closed,
 
           -- Additional attributes
-          r.borough
+          r.borough,
+          r.vehicle_type_code1,
+          r.contributing_factor_vehicle_1
     
       -- **** INSIDE that, WRITE THIS 4th, join by join:
       FROM requests r -- All staging data
